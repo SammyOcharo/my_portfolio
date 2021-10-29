@@ -22,6 +22,16 @@ class Project(models.Model):
     def __str__(self):
         return self.Headline
 
+class Feedback(models.Model):
+    id = models.AutoField(primary_key=True)
+    Photo = models.ImageField(upload_to = 'media')
+    Title = models.CharField(max_length=100)
+    SubTitle = models.CharField(max_length=120)
+    contact_email = models.EmailField()
+
+    def __str__(self):
+        return self.Title
+
 
 
 

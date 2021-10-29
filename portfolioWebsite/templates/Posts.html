@@ -2,99 +2,24 @@
 <h2 style="color: black; text-align: center;">All my projects</h2>
 
 <div class="post-wrapper">
+    {% for post in posts %}
     <div>
         <div class="post">
             <img class="thumbnail" src="media/pic.jpg" alt="">
             <div class="post-preview">
-                <h6 class="project-title">Project Title</h6>
-                <p class="project-intro"> This is a sentence. bla bla bla</p>
+                <h6 class="project-title">{{ post.Headline }}</h6>
+                <p class="project-intro">{{ post.Subheadline }}</p>
                 <a href="post">Check Project</a>
+
+                <hr> {% for tag in post.Tags.all %}
+                <span class="tag">{{ tag }}</span> {% endfor %}
+                <hr>
             </div>
         </div>
     </div>
-    <div>
-        <div class="post">
-            <img class="thumbnail" src="media/pic.jpg" alt="">
-            <div class="post-preview">
-                <h6 class="project-title">Project Title</h6>
-                <p class="project-intro"> This is a sentence. bla bla bla</p>
-                <a href="post">Check Project</a>
-            </div>
-        </div>
-    </div>
-    <div>
-        <div class="post">
-            <img class="thumbnail" src="media/pic.jpg" alt="">
-            <div class="post-preview">
-                <h6 class="project-title">Project Title</h6>
-                <p class="project-intro"> This is a sentence. bla bla bla</p>
-                <a href="post">Check Project</a>
-            </div>
-        </div>
-    </div>
+    {% empty %}
+    <h3>No Projects to view</h3>
+    {% endfor %}
 </div>
-<div class="post-wrapper">
-    <div>
-        <div class="post">
-            <img class="thumbnail" src="media/pic.jpg" alt="">
-            <div class="post-preview">
-                <h6 class="project-title">Project Title</h6>
-                <p class="project-intro"> This is a sentence. bla bla bla</p>
-                <a href="post">Check Project</a>
-            </div>
-        </div>
-    </div>
-    <div>
-        <div class="post">
-            <img class="thumbnail" src="media/pic.jpg" alt="">
-            <div class="post-preview">
-                <h6 class="project-title">Project Title</h6>
-                <p class="project-intro"> This is a sentence. bla bla bla</p>
-                <a href="post">Check Project</a>
-            </div>
-        </div>
-    </div>
-    <div>
-        <div class="post">
-            <img class="thumbnail" src="media/pic.jpg" alt="">
-            <div class="post-preview">
-                <h6 class="project-title">Project Title</h6>
-                <p class="project-intro"> This is a sentence. bla bla bla</p>
-                <a href="post">Check Project</a>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="post-wrapper">
-    <div>
-        <div class="post">
-            <img class="thumbnail" src="media/pic.jpg" alt="">
-            <div class="post-preview">
-                <h6 class="project-title">Project Title</h6>
-                <p class="project-intro"> This is a sentence. bla bla bla</p>
-                <a href="post">Check Project</a>
-            </div>
-        </div>
-    </div>
-    <div>
-        <div class="post">
-            <img class="thumbnail" src="media/pic.jpg" alt="">
-            <div class="post-preview">
-                <h6 class="project-title">Project Title</h6>
-                <p class="project-intro"> This is a sentence. bla bla bla</p>
-                <a href="post">Check Project</a>
-            </div>
-        </div>
-    </div>
-    <div>
-        <div class="post">
-            <img class="thumbnail" src="media/pic.jpg" alt="">
-            <div class="post-preview">
-                <h6 class="project-title">Project Title</h6>
-                <p class="project-intro"> This is a sentence. bla bla bla</p>
-                <a href="post">Check Project</a>
-            </div>
-        </div>
-    </div>
-</div>
+<p style="text-align: center;"><a href="{% url 'home' %}">Navigate back Home</a></p>
 {% endblock content %}

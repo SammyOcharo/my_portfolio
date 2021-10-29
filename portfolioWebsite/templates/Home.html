@@ -9,7 +9,7 @@
         <div class="intro-wrapper">
             {% include 'Navbar.html' %}
             <div class="left-column">
-                <img id="profile_picture" src="media/scripture.jpg" alt="">
+                <img id="profile_picture" src="media/pic.jpg" alt="">
                 <h5 style="text-align: center; margin: 0;">Personalize theme</h5>
                 <div id="theme-option">
                     <div data-mode="light" id="light-mode" class="theme-dot"></div>
@@ -37,7 +37,7 @@
 <section class="s2">
     <div class="main-container">
         <div class="about-wrapper">
-            <div class="about-me">
+            <div class="about-me" id="about">
                 <h4>More About Me</h4>
                 <p>Have had great interest in website development eaver since i got the chance to understand what it is all about</p>
                 <p>While i didnt get the right tools to kick start my programming journey early i promised myself will always make up for the time i never used earlier to learn programming.</p>
@@ -55,7 +55,7 @@
                         <li>Heroku</li>
                     </ul>
                     <ul>
-                        <li>MySql</li>
+                        <li>MySql/PostGresql</li>
                         <li>JQuery</li>
                         <li>Docker</li>
                         <li>K8s</li>
@@ -67,15 +67,17 @@
             <div class="social-links">
                 <img id="social_img" src="media/scripture.jpg" alt="">
                 <h3>Find me on Twitter and Facebook</h3>
-                <a class="social_links" target="_blank" href="#">Twitter: Obanyi_Ocharo </a>
+                <a class="social_links" target="_blank" href="#">Twitter</a>
                 <br>
-                <a class="social_links" target="_blank" href="#">Facebook: Sammy Steve Ocharo</a>
+                <a class="social_links" target="_blank" href="https://github.com/SammyOcharo?tab=repositories">Github</a>
+                <br>
+                <a class="social_links" target="_blank" href="#">Facebook</a>
             </div>
         </div>
     </div>
 </section>
 <section class="s1">
-    <div class="main-container">
+    <div class="main-container" id="achievement">
         <h3 style="text-align: center;">Achievements</h3>
         <div class="post-wrapper">
             <div>
@@ -112,7 +114,99 @@
         <p style="text-align: center;"><a href="{% url 'posts' %}">View all Projects</a></p>
     </div>
 </section>
-<section class="s2">
+<section class="s2" id="feedback">
+    <div class="main-container">
+        <h3 style="text-align: center;">Clientele Feedback</h3>
+        <div class="post-wrapper">
+            {% for Feedback in feedbacks %}
+            <div>
+                <div class="post">
+                    <img class="thumbnail" src="media/media/passy.jpg" alt="">
+                    <div class="post-preview">
+                        <h6 class="project-title">Client's Name: {{ Feedback.Title }}</h6>
+                        <small>contact email: <span style="font-weight: 600; color: black;">{{ Feedback.contact_email }}</span></small>
+                        <p class="project-intro">Project done: <span>{{ Feedback.SubTitle }}</span></p>
+                        <a class="btn" data-popup-open="popup-1" href="">Read More</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <div style="text-align: center; justify-content: center;">
+                {%if feedbacks.has_previous %}
+                <a href="?page={{feedbacks.previous_page_number}}">
+                    <<</a>{% endif %} {{feedbacks.number}}{%if feedbacks.has_next %}
+                        <a href="?page={{feedbacks.next_page_number}}">
+                            >></a> {% endif %}
+            </div>
+            <!--Modal box pop up-->
+            <div class="popup" data-popup="popup-1">
+                <div class="popup-inner">
+                    <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
+                    <div style="margin-top: 2em; font-weight: 600; font-size: 20px;">Remark</div>
+                    <small style="margin-top: 2em;">Sammy Ocharo is an outstanding developer and contracted him to build me a blogging site he has done a perfect job and would vouch for him again</small><br>
+                    <a style="margin-top: 3em;" target="_blank" href="https://www.youtube.com/watch?v=OYRkIGaP80M&ab_channel=Simplilearn">link to the website</a>
+                    <p><a data-popup-close="popup-1" href="#">Close</a></p>
+                    <hr style="color: black;">
+                </div>
+            </div>
+            <style>
+                .popup {
+                    width: 100%;
+                    height: 100%;
+                    display: none;
+                    position: fixed;
+                    top: 0px;
+                    left: 0px;
+                    background: rgba(0, 0, 0, 0.75);
+                }
+                
+                .popup-inner {
+                    max-width: 700px;
+                    width: 80%;
+                    height: 70%;
+                    max-height: 500px;
+                    padding: 40px;
+                    position: fixed;
+                    margin: 0 auto;
+                    top: 50%;
+                    left: 50%;
+                    -webkit-transform: translate(-50%, -50%);
+                    transform: translate(-50%, -50%);
+                    box-shadow: 0px 2px 6px rgba(0, 0, 0, 1);
+                    border-radius: 3px;
+                    background: #fff;
+                }
+                
+                .popup-close {
+                    width: 30px;
+                    height: 30px;
+                    padding-top: 4px;
+                    display: inline-block;
+                    position: absolute;
+                    top: 0px;
+                    right: 0px;
+                    transition: ease 0.35s all;
+                    -webkit-transform: translate(50%, -50%);
+                    transform: translate(50%, -50%);
+                    border-radius: 1000px;
+                    background: rgba(0, 0, 0, 0.8);
+                    font-family: Arial, Sans-Serif;
+                    font-size: 20px;
+                    text-align: center;
+                    line-height: 100%;
+                    color: #fff;
+                }
+                
+                .popup-close:hover {
+                    -webkit-transform: translate(50%, -50%) rotate(180deg);
+                    transform: translate(50%, -50%) rotate(180deg);
+                    background: rgba(0, 0, 0, 1);
+                    text-decoration: none;
+                }
+            </style>
+        </div>
+</section>
+<section class="s1" id="contact">
     <div class="main-container">
         <h3 style="text-align: center;">Contact Me</h3>
         <form id="contact-form">
@@ -128,5 +222,6 @@
             <input id="submit-btn" type="submit" value="send">
         </form>
     </div>
+    <small style="float: right;"><span style="font-weight: 400;">© 2021 obanyisammy@gmail.com</span></small>
 </section>
 {% endblock content %}

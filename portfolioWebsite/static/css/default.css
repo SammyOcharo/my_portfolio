@@ -8,6 +8,7 @@
     --themeDotBorder: #24292e;
     --previewBg: rgb(251, 249, 243, 0.8);
     --buttonColor: black;
+    --feedbackButton: #fff;
 }
 
 html,
@@ -18,6 +19,11 @@ body {
 
 body * {
     transition: 0.3s;
+}
+
+.s1 .s2 .s3 {
+    scroll-behavior: smooth;
+    overflow-y: scroll;
 }
 
 h1,
@@ -377,6 +383,16 @@ h6 {
 .project-intro {
     color: black;
     font-size: 16px;
+}
+
+.tag {
+    display: inline-block;
+    color: black;
+    background-color: #888;
+    border-radius: 5px;
+    margin: 2px;
+    padding: 2px 5px;
+    font-size: 12px;
 }
 
 @media screen and (max-width: 1200px) {
