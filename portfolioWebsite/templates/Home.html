@@ -1,5 +1,4 @@
-{% extends 'Base.html' %} {% block content %}
-
+{% extends 'Base.html' %} {% block content %} {% load static %}
 
 <section class="s1">
     <div class="main-container">
@@ -7,9 +6,8 @@
             <h1>Hi, I am Sammy Ocharo</h1>
         </div>
         <div class="intro-wrapper">
-            {% include 'Navbar.html' %}
             <div class="left-column">
-                <img id="profile_picture" src="media/pic.jpg" alt="">
+                <img id="profile_picture" src="{% static 'media/pic.jpg' %}" alt="">
                 <h5 style="text-align: center; margin: 0;">Personalize theme</h5>
                 <div id="theme-option">
                     <div data-mode="light" id="light-mode" class="theme-dot"></div>
@@ -65,7 +63,7 @@
                 </div>
             </div>
             <div class="social-links">
-                <img id="social_img" src="media/scripture.jpg" alt="">
+                <img id="social_img" src="{% static 'media/scripture.jpg' %}" alt="">
                 <h3>Find me on Twitter and Facebook</h3>
                 <a class="social_links" target="_blank" href="#">Twitter</a>
                 <br>
@@ -82,7 +80,7 @@
         <div class="post-wrapper">
             <div>
                 <div class="post">
-                    <img class="thumbnail" src="media/pic.jpg" alt="">
+                    <img class="thumbnail" src="{% static 'media/pic.jpg' %}" alt="">
                     <div class="post-preview">
                         <h6 class="project-title">Project Title</h6>
                         <p class="project-intro"> This is a sentence. bla bla bla</p>
@@ -92,7 +90,7 @@
             </div>
             <div>
                 <div class="post">
-                    <img class="thumbnail" src="media/pic.jpg" alt="">
+                    <img class="thumbnail" src="{% static 'media/pic.jpg' %}" alt="">
                     <div class="post-preview">
                         <h6 class="project-title">Project Title</h6>
                         <p class="project-intro"> This is a sentence. bla bla bla</p>
@@ -102,7 +100,7 @@
             </div>
             <div>
                 <div class="post">
-                    <img class="thumbnail" src="media/pic.jpg" alt="">
+                    <img class="thumbnail" src="{% static 'media/pic.jpg' %}" alt="">
                     <div class="post-preview">
                         <h6 class="project-title">Project Title</h6>
                         <p class="project-intro"> This is a sentence. bla bla bla</p>
@@ -121,7 +119,7 @@
             {% for Feedback in feedbacks %}
             <div>
                 <div class="post">
-                    <img class="thumbnail" src="media/media/passy.jpg" alt="">
+                    <img class="thumbnail" src="{% static 'media/passy.jpg' %}" alt="">
                     <div class="post-preview">
                         <h6 class="project-title">Client's Name: {{ Feedback.Title }}</h6>
                         <small>contact email: <span style="font-weight: 600; color: black;">{{ Feedback.contact_email }}</span></small>

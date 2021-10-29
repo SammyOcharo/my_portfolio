@@ -5,7 +5,7 @@
     {% for post in posts %}
     <div>
         <div class="post">
-            <img class="thumbnail" src="media/pic.jpg" alt="">
+            <img class="thumbnail" src="{% static 'media/pic.jpg' %}" alt="">
             <div class="post-preview">
                 <h6 class="project-title">{{ post.Headline }}</h6>
                 <p class="project-intro">{{ post.Subheadline }}</p>
