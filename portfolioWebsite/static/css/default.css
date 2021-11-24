@@ -371,7 +371,6 @@ h6 {
 }
 
 .post-preview {
-    background-color: #fff;
     padding: 15px;
 }
 
@@ -385,14 +384,9 @@ h6 {
     font-size: 16px;
 }
 
-.tag {
-    display: inline-block;
+.remarks {
     color: black;
-    background-color: #888;
-    border-radius: 5px;
-    margin: 2px;
-    padding: 2px 5px;
-    font-size: 12px;
+    font-size: 16px;
 }
 
 @media screen and (max-width: 1200px) {
